@@ -2,15 +2,17 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Sistema De Controle De Custos API",
-  "main": "server.js",
+  "main": "./dist/server.js",
   "scripts": {
     "dev": "ts-node --transpile-only server.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "start": "node ./dist/server.js"
   },
   "keywords": [
     "typescript",
     "nodejs",
-    "express"
+    "express",
+    "typeorm"
   ],
   "author": "Ramon Moura <https://github.com/ramonrsm>",
   "homepage": "https://github.com/ramonrsm/sistema-de-controle-de-custos/blob/master/README.md",
@@ -22,6 +24,9 @@
     "typescript": "^4.1.3"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.29"
   }
 }
