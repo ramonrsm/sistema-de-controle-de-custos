@@ -1,7 +1,9 @@
-import express from "express";
-
-const app = express();
+import app from './src/config/app';
 
 const porta = 4000;
 
-app.listen(porta, () => console.log(`Servidor rodando em http://localhost:${porta}`));
+app.post('/', (request, response) => response.json(request.body));
+
+app.listen(porta, () => {
+    console.log(`Servidor rodando em http://localhost:${porta}`);
+});
