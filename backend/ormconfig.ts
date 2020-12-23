@@ -8,5 +8,11 @@ module.exports = {
     password: env.DB_CONFIG.password,
     database: env.DB_CONFIG.database,
     synchronize: true,
-    logging: false
+    logging: false,
+    migrations: [
+        "src/migrations/**/*.ts"
+    ],
+    cli: {
+        migrationsDir: "src/migrations"
+    }
 }

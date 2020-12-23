@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=dev ts-node --transpile-only server.ts",
     "build": "tsc",
-    "start": "node ./dist/server.js"
+    "start": "node ./dist/server.js",
+    "migration:create": "ts-node node_modules/typeorm/cli.js migration:create -n",
+    "migration:run": "ts-node node_modules/typeorm/cli.js migration:run",
+    "migration:revert": "ts-node node_modules/typeorm/cli.js migration:revert"
   },
   "keywords": [
     "typescript",
