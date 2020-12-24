@@ -1,6 +1,6 @@
 const env = require('./.env');
 
-module.exports = {
+export default {
     type: "mysql",
     host: env.DB_CONFIG.host,
     port: env.DB_CONFIG.port,
@@ -10,7 +10,7 @@ module.exports = {
     synchronize: true,
     logging: false,
     migrations: [
-        "src/migrations/**/*.ts"
+        "src/migrations/**/*.{ts,js}"
     ],
     cli: {
         migrationsDir: "src/migrations"

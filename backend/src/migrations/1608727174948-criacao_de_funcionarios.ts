@@ -21,7 +21,7 @@ export class criacaoDeFuncionarios1608727174948 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('funcionarios');
+        await queryRunner.dropTable('funcionarios', true);
     }
 
 }
