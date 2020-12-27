@@ -2,11 +2,11 @@ import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 
 import { ICadastroDepartamento } from '../validators/vDepartamento';
-import mDepartamento from '../models/mDepartamento';
 
+import mDepartamento from '../models/mDepartamento';
 import mDepartamentos from '../models/mDepartamento';
 
-import { BadRequest, ServerError } from '../utils/RequestResponse';
+import { BadRequest, ServerError, Created } from '../utils/RequestResponse';
 
 export default {
     criarDepartamento: async (request: Request, response: Response) => {
@@ -20,7 +20,7 @@ export default {
             const departamentoCadastrado = await departamentoRepository.findOne({ where: { nome: nome.toUpperCase() } });
 
             if (departamentoCadastrado) {
-                return BadRequest({ body: request.body }, response, `O departamento "${nome}" já está cadastrado.`);
+                return BadRequest(response, `O departamento "${nome}" já está cadastrado.`, { body: request.body });
             }
 
             const DepartamentoRepository = getRepository(mDepartamento);
@@ -31,7 +31,7 @@ export default {
 
             const novoDepartamento = await DepartamentoRepository.save(Departamento);
 
-            return response.status(201).json(novoDepartamento);
+            return Created(response, novoDepartamento);
 
         } catch (error) {
             console.log('criarDepartamento', 'Body:', request.body, 'Erro:', error);
