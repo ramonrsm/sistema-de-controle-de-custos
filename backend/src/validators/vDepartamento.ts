@@ -15,7 +15,7 @@ export default {
             nome: Joi.string().required().min(2).max(100)
         })
     }),
-    buscarDepartamentos: celebrate({
+    validarBuscarDepartamentos: celebrate({
         [Segments.QUERY]: Joi.object().keys({
             page: Joi.number()
         })
