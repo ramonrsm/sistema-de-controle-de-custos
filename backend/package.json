@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=dev ts-node --transpile-only server.ts",
     "build": "tsc",
-    "typeorm": "ts-node --transpile-only ./node_modules/typeorm/cli.js",
+    "typeorm": "ts-node --transpile-only ./node_modules/typeorm/cli.js --config ormconfig.ts",
+    "migration:create": "npm run typeorm -- migration:create -n",
+    "migration:run": "npm run typeorm -- migration:run",
+    "migration:revert": "npm run typeorm -- migration:revert",
+    "migration:generate": "npm run typeorm -- migration:generate -n",
     "prestart": "npm i --only=prod && typeorm --config ormconfig.js migration:run",
     "start": "node server.js",
     "prerestart": "typeorm --config ormconfig.js migration:revert",
