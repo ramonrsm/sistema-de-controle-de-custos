@@ -21,5 +21,10 @@ export default {
                 nome: Joi.string().required().min(2).max(100).required()
             })).required().min(1)
         })
+    }),
+    validarBuscarFuncionarios: celebrate({
+        [Segments.QUERY]: Joi.object().keys({
+            page: Joi.number()
+        })
     })
  }

@@ -7,7 +7,7 @@ import mFuncionario from '../models/mFuncionario';
 import mDepartamentos from '../models/mDepartamento';
 import mFuncionarioDepartamento from '../models/mFuncionarioDepartamento';
 
-import { BadRequest, ServerError, Success } from '../utils/RequestResponse';
+import { BadRequest, ServerError, Success, NoContent } from '../utils/RequestResponse';
 
 export default {
     criarFuncionario: async (request: Request, response: Response) => {
@@ -51,6 +51,35 @@ export default {
 
         } catch (error) {
             console.log('criarFuncionario', 'Body:', request.body, 'Erro:', error);
+            return ServerError(response);
+        }
+    },
+    buscarFuncionarios: async (request: Request, response: Response) => {
+
+        try {
+
+            const { page } = request.query;
+
+            const quantidadeDeRegistros = 10;
+
+            let quantidadePularRegistros = 0;
+
+            if(page) {
+                quantidadePularRegistros = (parseInt(page.toString()) * quantidadeDeRegistros) - quantidadeDeRegistros;
+            }
+
+            const funcionarioRepository = getRepository(mFuncionario);
+
+            const funcionarios = await funcionarioRepository.find({ take: quantidadeDeRegistros, skip: quantidadePularRegistros, order: { nome: 'ASC' } });
+
+            if(funcionarios.length === 0) {
+                return NoContent(response);
+            }
+
+            return Success(response, funcionarios)
+
+        } catch (error) {
+            console.log('buscarFuncionarios', 'Erro:', error.message);
             return ServerError(response);
         }
     }
