@@ -1,6 +1,6 @@
 import { Response } from 'express';
 
-export function BadRequest(data: any, response: Response, message: string) {
+export function BadRequest(response: Response, message: string, data: any) {
 
     const status = 400;
 
@@ -23,4 +23,34 @@ export function ServerError(response: Response) {
     })
 }
 
-export default { BadRequest, ServerError }
+export function Created(response: Response, data: any) {
+
+    const status = 201;
+
+    return response.status(status).json({
+        statusCode: status,
+        data
+    })
+}
+
+export function Success(response: Response, data: any = "") {
+
+    const status = 200;
+
+    return response.status(status).json({
+        statusCode: status,
+        data
+    })
+}
+
+export function NoContent(response: Response) {
+
+    const status = 204;
+
+    return response.status(status).json({
+        statusCode: status,
+        data: ""
+    })
+}
+
+export default { BadRequest, ServerError, Created, Success }
