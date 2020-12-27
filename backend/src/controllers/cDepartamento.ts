@@ -63,7 +63,7 @@ export default {
             return Success(response, departamentos)
 
         } catch (error) {
-            console.log('buscarTodosOsFuncionarios', 'Erro:', error.message);
+            console.log('buscarDepartamentos', 'Erro:', error.message);
             return ServerError(response);
         }
     }
