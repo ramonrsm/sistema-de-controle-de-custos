@@ -6,7 +6,7 @@ import Departamento from './mDepartamento';
 export default class FuncionarioDepartamento {
 
     @PrimaryGeneratedColumn("uuid")
-    id: number;
+    id: string;
 
     @OneToOne(type => Funcionario, funcionario => funcionario.id, {
         onUpdate: 'CASCADE',
