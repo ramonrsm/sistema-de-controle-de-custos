@@ -9,6 +9,9 @@ export default {
     database: env.DB_CONFIG.database,
     synchronize: true,
     logging: false,
+    entities: [
+        "src/models/**/*.{ts,js}"
+    ],
     migrations: [
         "src/migrations/**/*.{ts,js}"
     ],
