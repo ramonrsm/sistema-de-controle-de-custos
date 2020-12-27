@@ -14,5 +14,10 @@ export default {
         [Segments.BODY]: Joi.object().keys({
             nome: Joi.string().required().min(2).max(100)
         })
+    }),
+    buscarDepartamentos: celebrate({
+        [Segments.QUERY]: Joi.object().keys({
+            page: Joi.number()
+        })
     })
  }
