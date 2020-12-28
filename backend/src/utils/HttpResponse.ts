@@ -18,7 +18,7 @@ export function ServerError(response: Response) {
 
     return response.status(status).json({
         statusCode: status,
-        error: 'Server Error',
+        error: 'Internal Server Error',
         message: 'Erro interno no servidor.'
     })
 }

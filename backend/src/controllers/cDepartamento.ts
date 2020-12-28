@@ -6,7 +6,7 @@ import { ICadastroDepartamento } from '../validators/vDepartamento';
 import mDepartamento from '../models/mDepartamento';
 import mDepartamentos from '../models/mDepartamento';
 
-import { BadRequest, ServerError, Created, Success, NoContent } from '../utils/RequestResponse';
+import { BadRequest, ServerError, Created, Success, NoContent } from '../utils/HttpResponse';
 
 export default {
     criarDepartamento: async (request: Request, response: Response) => {

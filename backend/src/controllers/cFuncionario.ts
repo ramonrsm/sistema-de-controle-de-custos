@@ -7,7 +7,7 @@ import mFuncionario from '../models/mFuncionario';
 import mDepartamentos from '../models/mDepartamento';
 import mFuncionarioDepartamento from '../models/mFuncionarioDepartamento';
 
-import { BadRequest, ServerError, Success, NoContent } from '../utils/RequestResponse';
+import { BadRequest, ServerError, Success, NoContent } from '../utils/HttpResponse';
 
 export default {
     criarFuncionario: async (request: Request, response: Response) => {
