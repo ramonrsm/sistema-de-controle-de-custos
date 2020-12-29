@@ -26,7 +26,7 @@ export default {
             const movimentacaoRepository = getRepository(mMovimentacao);
 
             const movimentacao = movimentacaoRepository.create({
-                funcionario_id,
+                funcionario: { id: funcionario_id },
                 descricao,
                 valor
             });

@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn } from "typeorm";
+import Movimentacao from './mMovimentacao';
 
 @Entity()
 export default class Funcionarios {
@@ -10,4 +11,8 @@ export default class Funcionarios {
         length: 200
     })
     nome: string;
+
+    @OneToMany(type => Movimentacao, movimentacao => movimentacao.funcionario.id)
+    @JoinColumn({ name: 'funcionario_id' })
+    movimentacoes: Movimentacao[];
 }
