@@ -20,5 +20,10 @@ export default {
             descricao: Joi.string().required().min(5).max(500),
             valor: Joi.number().positive().less(100000).precision(2).required()
         })
+    }),
+    validarBuscarMovimentacoes: celebrate({
+        [Segments.QUERY]: Joi.object().keys({
+            page: Joi.number()
+        })
     })
  }
