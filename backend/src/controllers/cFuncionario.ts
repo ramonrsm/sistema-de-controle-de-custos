@@ -79,7 +79,7 @@ export default {
             return Success(response, funcionarios)
 
         } catch (error) {
-            console.log('buscarFuncionarios', 'Erro:', error.message);
+            console.log('buscarFuncionarios', 'Erro:', error);
             return ServerError(response);
         }
     }

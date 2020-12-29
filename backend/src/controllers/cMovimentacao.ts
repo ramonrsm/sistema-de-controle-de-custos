@@ -70,7 +70,7 @@ export default {
             return Success(response, movimentacoes)
 
         } catch (error) {
-            console.log('buscarMovimentacoes', 'Erro:', error.message);
+            console.log('buscarMovimentacoes', 'Erro:', error);
             return ServerError(response);
         }
     }
