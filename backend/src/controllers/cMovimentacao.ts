@@ -46,7 +46,7 @@ export default {
 
             const { page } = request.query;
 
-            const quantidadeDeRegistros = 2;
+            const quantidadeDeRegistros = 10;
 
             let quantidadePularRegistros = 0;
 
