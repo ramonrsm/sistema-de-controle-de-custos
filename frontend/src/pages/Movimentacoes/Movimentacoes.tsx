@@ -1,19 +1,8 @@
 import dayjs from "dayjs";
 import axios from '../../config/axios';
 import { useEffect, useState } from "react";
-
-interface IFuncionario {
-    id: string,
-    nome: string
-}
-
-interface IMovimentacao {
-    id: string
-    funcionario: IFuncionario,
-    descricao: string,
-    valor: string,
-    created_at: Date
-}
+import { Link } from 'react-router-dom';
+import IMovimentacao from "./IMovimentacao";
 
 function listaMovimentacao(movimentacoes: Array<IMovimentacao>) {
 
@@ -36,7 +25,7 @@ function listaMovimentacao(movimentacoes: Array<IMovimentacao>) {
 
 function Movimentacoes() {
 
-    const [mensagem, setMensagem] = useState("")
+    const [mensagem, setMensagem] = useState("");
     const [movimentacoes, setMovimentacoes] = useState<Array<IMovimentacao>>([]);
 
     useEffect(() => {
@@ -55,7 +44,7 @@ function Movimentacoes() {
             <h1 className="mx-3">Movimentações</h1>
             <hr />
             <div className="ml-3">
-                <button type="button" className="btn btn-primary text-uppercase font-weight-bold">Nova movimentação</button>
+                <Link to="/movimentacoes/cadastro" className="btn btn-primary text-uppercase font-weight-bold">Nova movimentação</Link>
             </div>
             {
                 mensagem && (
