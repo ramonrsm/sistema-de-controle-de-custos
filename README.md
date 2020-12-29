@@ -48,7 +48,7 @@ $ cd backend
 $ npm install
 
 # Execute as migrations
-$ migration:run
+$ npm run migration:run
 
 # Execute a aplicação em modo de desenvolvimento
 $ npm run dev
