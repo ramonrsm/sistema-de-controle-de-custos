@@ -1,6 +1,13 @@
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Routes from './Routes';
+
 function App() {
   return (
-    <h1>Sistema De Controle De Custos</h1>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/*" component={Routes} />        
+      </Switch>
+    </BrowserRouter>
   );
 }
 
