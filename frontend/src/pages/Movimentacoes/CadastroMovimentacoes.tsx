@@ -33,7 +33,7 @@ function CadastroMovimentacoes({ history }:RouteComponentProps) {
                 }
             })
             .catch(error => {
-                setMensagem("Falha ao salvar a movimentação.");
+                setMensagem("Falha ao buscar os funcionários.");
             })
     }, []);
 
